@@ -23,5 +23,17 @@ import { Application, Assets, Sprite } from 'pixi.js';
 
     // Append to the stage.
     pixiJsApp.stage.addChild(koishi);
+
+    // Grant image rotation.
+    pixiJsApp.ticker.add((time) => {
+      // The rotation in PixiJS is radian-based.
+      koishi.rotation += 0.05 * time.deltaTime;
+    });
+
+    // Grant image movement.
+    pixiJsApp.ticker.add(() => {
+      // The rotation in PixiJS is radian-based.
+      koishi.x += 10 * Math.cos(koishi.rotation);
+    });
   })();
 })();
