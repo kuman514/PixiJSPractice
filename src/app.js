@@ -1,18 +1,15 @@
-import { Application, Assets, Sprite } from 'pixi.js';
+import { Sprite } from 'pixi.js';
+
+import { pixiJsApp } from './setup/app-init';
+import { preload } from './setup/preload';
+import { setup } from './setup/setup';
 
 (() => {
-  const mainElement = document.querySelector('main');
   (async () => {
-    // Await the app initializing.
-    const pixiJsApp = new Application();
-    await pixiJsApp.init({ background: '#22b14c', resizeTo: window });
-    mainElement.appendChild(pixiJsApp.canvas);
+    await setup();
+    await preload();
 
-    // Images load asynchronously. So, to get texture, we need to await the assets to be loaded.
-    const texture = await Assets.load(
-      'https://pbs.twimg.com/media/GNe66_yaMAMCshU.jpg'
-    );
-    const koishi = new Sprite(texture);
+    const koishi = Sprite.from('koishi');
 
     // Set sprite position and size.
     koishi.anchor.set(0.5);
