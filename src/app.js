@@ -3,11 +3,14 @@ import { Sprite } from 'pixi.js';
 import { pixiJsApp } from './setup/app-init';
 import { preload } from './setup/preload';
 import { setup } from './setup/setup';
+import { addBackground } from './sprite/background';
 
 (() => {
   (async () => {
     await setup();
     await preload();
+
+    addBackground();
 
     const koishi = Sprite.from('koishi');
 
