@@ -10,7 +10,7 @@ import { addBackground } from './sprite/background';
     await setup();
     await preload();
 
-    addBackground();
+    addBackground(pixiJsApp);
 
     const koishi = Sprite.from('koishi');
 

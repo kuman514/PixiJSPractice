@@ -1,8 +1,6 @@
-import { pixiJsApp } from '../setup/app-init';
-
 import { Sprite } from 'pixi.js';
 
-export function addBackground() {
+export function addBackground(pixiJsApp) {
   const background = Sprite.from('background');
   background.anchor.set(0.5);
 
