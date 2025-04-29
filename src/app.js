@@ -1,5 +1,6 @@
 import { Container } from 'pixi.js';
 
+import { addDisplacementEffect } from './effect/displacement';
 import { pixiJsApp } from './setup/app-init';
 import { preload } from './setup/preload';
 import { setup } from './setup/setup';
@@ -58,5 +59,8 @@ import { addWaterOverlay, animateWaterOverlay } from './sprite/water-overlay';
     pixiJsApp.ticker.add((time) =>
       animateWaterOverlay({ waterOverlay, amount: time.deltaTime * 2 })
     );
+
+    // Add displacement effect
+    addDisplacementEffect({ pixiJsApp });
   })();
 })();
