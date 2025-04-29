@@ -5,6 +5,7 @@ import { preload } from './setup/preload';
 import { setup } from './setup/setup';
 import { addBackground } from './sprite/background';
 import { addFishes, animateFishes } from './sprite/fishes';
+import { addWaterOverlay, animateWaterOverlay } from './sprite/water-overlay';
 
 (() => {
   (async () => {
@@ -51,5 +52,11 @@ import { addFishes, animateFishes } from './sprite/fishes';
 
     // Animate fishes
     pixiJsApp.ticker.add((time) => animateFishes({ pixiJsApp, fishes, time }));
+
+    // Add water overlay
+    const waterOverlay = addWaterOverlay({ pixiJsApp });
+    pixiJsApp.ticker.add((time) =>
+      animateWaterOverlay({ waterOverlay, amount: time.deltaTime * 2 })
+    );
   })();
 })();
