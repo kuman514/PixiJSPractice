@@ -1,6 +1,7 @@
 import { addMoon } from './graphics/moon';
 import { addMountains, animateMountains } from './graphics/mountain';
 import { addStars } from './graphics/star';
+import { generateRandomTrees } from './graphics/tree';
 import { pixiJsApp } from './setup/app-init';
 import { setup } from './setup/setup';
 
@@ -71,6 +72,12 @@ import { setup } from './setup/setup';
     animateMountains({
       pixiJsApp,
       graphics: mountainGraphics,
+    });
+
+    const trees = generateRandomTrees({
+      pixiJsApp,
+      count: 4,
+      spacing: 15,
     });
   })();
 })();
