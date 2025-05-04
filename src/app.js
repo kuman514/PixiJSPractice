@@ -1,3 +1,4 @@
+import { addGround } from './graphics/ground';
 import { addMoon } from './graphics/moon';
 import { addMountains, animateMountains } from './graphics/mountain';
 import { addStars } from './graphics/star';
@@ -82,6 +83,11 @@ import { setup } from './setup/setup';
     animateTrees({
       pixiJsApp,
       trees,
+    });
+
+    addGround({
+      pixiJsApp,
+      height: 20,
     });
   })();
 })();
