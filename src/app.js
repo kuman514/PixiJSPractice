@@ -1,4 +1,4 @@
-import { addGround } from './graphics/ground';
+import { addGround, addPlanks, addRail } from './graphics/ground';
 import { addMoon } from './graphics/moon';
 import { addMountains, animateMountains } from './graphics/mountain';
 import { addStars } from './graphics/star';
@@ -88,6 +88,18 @@ import { setup } from './setup/setup';
     addGround({
       pixiJsApp,
       height: 20,
+    });
+
+    addPlanks({
+      pixiJsApp,
+      height: 10,
+      startY: pixiJsApp.screen.height - 30,
+      count: 5,
+    });
+    addRail({
+      pixiJsApp,
+      startY: pixiJsApp.screen.height - 40,
+      height: 10,
     });
   })();
 })();
