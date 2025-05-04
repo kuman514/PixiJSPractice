@@ -33,7 +33,7 @@ export function generateRandomTrees({ pixiJsApp, count, spacing }) {
     const graphics = new Graphics();
 
     const treeWidth = pixiJsApp.screen.width / 3;
-    const treeHeight = (pixiJsApp.screen.height + Math.random() * 50) / 3;
+    const treeHeight = (pixiJsApp.screen.height + Math.random() * 1000) / 4;
     const trunkHeight = treeHeight / 4;
     const crownHeight = (treeHeight * 3) / 4;
 
@@ -60,4 +60,17 @@ export function generateRandomTrees({ pixiJsApp, count, spacing }) {
   }
 
   return treeGraphics;
+}
+
+export function animateTrees({ pixiJsApp, trees }) {
+  pixiJsApp.ticker.add((time) => {
+    const dx = time.deltaTime * 5;
+    trees.forEach((tree) => {
+      tree.x -= dx;
+
+      if (tree.x <= -tree.width / 2) {
+        tree.x += 2 * pixiJsApp.screen.width;
+      }
+    });
+  });
 }
