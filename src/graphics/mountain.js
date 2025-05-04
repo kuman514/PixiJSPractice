@@ -33,9 +33,11 @@ export function addMountains({ pixiJsApp, mountains }) {
 export function animateMountains({ pixiJsApp, graphics }) {
   pixiJsApp.ticker.add((time) => {
     const dx = time.deltaTime * 0.5;
-    graphics.x -= dx;
-    if (graphics.x <= -pixiJsApp.screen.width) {
-      graphics.x += pixiJsApp.screen.width * 2;
-    }
+    graphics.forEach((mountainGraphics) => {
+      mountainGraphics.x -= dx;
+      if (mountainGraphics.x <= -pixiJsApp.screen.width) {
+        mountainGraphics.x += pixiJsApp.screen.width * 2;
+      }
+    });
   });
 }
