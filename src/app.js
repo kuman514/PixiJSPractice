@@ -1,4 +1,4 @@
-import { PixiJsAppSingleton } from './shared/setup/app-init';
+import { PixiJsAppSingleton } from './shared/setup';
 
 (() => {
   (async () => {
