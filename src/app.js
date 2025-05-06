@@ -17,5 +17,12 @@ import { PixiJsAppSingleton } from './shared/setup';
       y: Math.random() * pixiJsApp.screen.height,
     });
     pixiJsApp.stage.addChild(hoshinoIcon);
+
+    pixiJsApp.ticker.add((time) => {
+      const deltaMs = time.deltaMS;
+
+      koishiIcon.rotation += (deltaMs / 1000) * 2 * Math.PI;
+      hoshinoIcon.rotation += (deltaMs / 1000) * 2 * Math.PI;
+    });
   })();
 })();
