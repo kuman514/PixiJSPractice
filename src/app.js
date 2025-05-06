@@ -50,9 +50,10 @@ import { PixiJsAppSingleton } from './shared/setup';
       iconContainer.x = mouseX;
       iconContainer.y = mouseY;
 
+      iconContainer.scale.set(Math.abs(Math.sin(iconContainer.rotation / 4)));
       iconContainer.rotation -= (deltaMs / 1000) * 2 * Math.PI;
       icons.forEach((icon) => {
-        icon.rotation += (deltaMs / 1000) * 2 * Math.PI;
+        icon.rotation += (deltaMs / 1000) * 3 * Math.PI;
       });
     });
   })();
