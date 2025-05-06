@@ -1,4 +1,5 @@
 import { Container } from 'pixi.js';
+
 import { generateHoshino } from './entities/hoshino';
 import { generateKoishi } from './entities/koishi';
 import { PixiJsAppSingleton } from './shared/setup';
@@ -7,29 +8,27 @@ import { PixiJsAppSingleton } from './shared/setup';
   (async () => {
     const pixiJsApp = await PixiJsAppSingleton.getPixiJsApp();
 
-    const icons = [
-      generateKoishi({
-        x: -120,
-        y: -120,
-      }),
-      generateHoshino({
-        x: 120,
-        y: -120,
-      }),
-      generateHoshino({
-        x: -120,
-        y: 120,
-      }),
-      generateKoishi({
-        x: 120,
-        y: 120,
-      }),
-    ];
-
     const iconContainer = new Container();
     iconContainer.pivot.x = iconContainer.width / 2;
     iconContainer.pivot.y = iconContainer.height / 2;
-    iconContainer.addChild(...icons);
+    iconContainer.addChild(
+      generateKoishi({
+        x: -120,
+        y: -120,
+      }),
+      generateHoshino({
+        x: 120,
+        y: -120,
+      }),
+      generateHoshino({
+        x: -120,
+        y: 120,
+      }),
+      generateKoishi({
+        x: 120,
+        y: 120,
+      })
+    );
 
     let mouseX = pixiJsApp.screen.width / 2;
     let mouseY = pixiJsApp.screen.height / 2;
@@ -41,7 +40,6 @@ import { PixiJsAppSingleton } from './shared/setup';
       mouseX = event.global.x;
       mouseY = event.global.y;
     });
-
     pixiJsApp.stage.addChild(iconContainer);
 
     pixiJsApp.ticker.add((time) => {
@@ -52,7 +50,7 @@ import { PixiJsAppSingleton } from './shared/setup';
 
       iconContainer.scale.set(Math.abs(Math.sin(iconContainer.rotation / 4)));
       iconContainer.rotation -= (deltaMs / 1000) * 2 * Math.PI;
-      icons.forEach((icon) => {
+      iconContainer.children.forEach((icon) => {
         icon.rotation += (deltaMs / 1000) * 3 * Math.PI;
       });
     });
