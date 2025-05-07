@@ -1,7 +1,6 @@
-import { generateHoshino } from './entities/hoshino';
-import { generateKoishi } from './entities/koishi';
 import { PixiJsAppSingleton } from './shared/setup';
 import { generateIconTracker } from './features/icon-tracker';
+import { generateIcon } from './entities/icon';
 
 (() => {
   (async () => {
@@ -13,19 +12,23 @@ import { generateIconTracker } from './features/icon-tracker';
 
     const iconTracker = await generateIconTracker({
       initIcons: [
-        generateKoishi({
+        generateIcon({
+          spriteName: 'koishi',
           x: -120,
           y: -120,
         }),
-        generateHoshino({
+        generateIcon({
+          spriteName: 'hoshino',
           x: 120,
           y: -120,
         }),
-        generateHoshino({
+        generateIcon({
+          spriteName: 'hoshino',
           x: -120,
           y: 120,
         }),
-        generateKoishi({
+        generateIcon({
+          spriteName: 'koishi',
           x: 120,
           y: 120,
         }),
