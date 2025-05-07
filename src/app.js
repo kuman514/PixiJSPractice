@@ -1,6 +1,7 @@
 import { PixiJsAppSingleton } from './shared/setup';
 import { generateIconTracker } from './features/icon-tracker';
 import { generateIcon } from './entities/icon';
+import { generateIconCloud } from './features/icon-cloud';
 
 (() => {
   (async () => {
@@ -39,6 +40,18 @@ import { generateIcon } from './entities/icon';
       },
     });
 
+    const cloudSpriteNames = ['react', 'hanmogm', 'javascript', 'typescript'];
+    const iconCloud = await generateIconCloud({
+      initIcons: Array.from({ length: 40 }, (_, i) =>
+        generateIcon({
+          spriteName: cloudSpriteNames[i % cloudSpriteNames.length],
+          x: 0,
+          y: 0,
+        })
+      ),
+    });
+
+    pixiJsApp.stage.addChild(iconCloud);
     pixiJsApp.stage.addChild(iconTracker);
   })();
 })();
