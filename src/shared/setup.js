@@ -50,7 +50,7 @@ export class PixiJsAppSingleton {
       PixiJsAppSingleton.#pixiJsApp = new Application();
 
       await PixiJsAppSingleton.#pixiJsApp.init({
-        background: '#22b14c',
+        background: 'transparent',
         resizeTo: window,
       });
 
