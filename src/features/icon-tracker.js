@@ -22,7 +22,11 @@ export async function generateIconTracker({ initIcons, initPosition }) {
       icon.rotation += (deltaMs / 1000) * 3 * Math.PI;
     });
   });
+
   pixiJsApp.stage.on('mousemove', (event) => {
+    container.position.copyFrom(event.global);
+  });
+  pixiJsApp.stage.on('pointermove', (event) => {
     container.position.copyFrom(event.global);
   });
 
