@@ -1,6 +1,11 @@
 import { Application, Assets } from 'pixi.js';
+
 import KoishiPng from '../assets/koishi.png';
 import HoshinoPng from '../assets/hoshino.png';
+import JavaScriptPng from '../assets/javascript.png';
+import TypeScriptPng from '../assets/typescript.png';
+import ReactPng from '../assets/react.png';
+import HanmogmPng from '../assets/hanmogm.png';
 
 export class PixiJsAppSingleton {
   static #pixiJsApp;
@@ -17,6 +22,22 @@ export class PixiJsAppSingleton {
       {
         alias: 'hoshino',
         src: HoshinoPng,
+      },
+      {
+        alias: 'react',
+        src: ReactPng,
+      },
+      {
+        alias: 'javascript',
+        src: JavaScriptPng,
+      },
+      {
+        alias: 'typescript',
+        src: TypeScriptPng,
+      },
+      {
+        alias: 'hanmogm',
+        src: HanmogmPng,
       },
     ];
 
